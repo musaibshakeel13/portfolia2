@@ -355,8 +355,9 @@
 
         .mini-card {
             position: absolute;
-            bottom: 25px;
-            left: -30px;
+            bottom: 22px;
+            left: -42px;
+            z-index: 4;
             background: var(--card);
             border: 1px solid var(--border);
             backdrop-filter: blur(18px);
@@ -789,18 +790,76 @@
         }
 
         footer {
-            padding: 35px 0;
+            padding: 42px 0 28px;
             border-top: 1px solid var(--border);
-            text-align: center;
             color: var(--muted);
             font-size: .84rem
         }
 
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            width: min(1120px, 92%);
+            margin: auto;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card);
+            backdrop-filter: blur(18px)
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 3px
+        }
+
+        .footer-brand strong {
+            font-family: 'Space Grotesk';
+            font-size: 1.05rem;
+            color: var(--text)
+        }
+
+        .footer-brand span {
+            font-size: .72rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 700
+        }
+
+        .footer-address {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .footer-address>i {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(96, 165, 250, .1);
+            color: var(--primary)
+        }
+
+        .footer-address strong {
+            display: block;
+            color: var(--text)
+        }
+
+        .footer-address span {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem
+        }
+
         .socials {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px
+            gap: 10px
         }
 
         .social {
@@ -817,6 +876,11 @@
             transform: translateY(-3px);
             color: var(--primary);
             border-color: var(--primary)
+        }
+
+        .footer-copy {
+            text-align: center;
+            margin-top: 18px
         }
 
         .top {
@@ -899,6 +963,19 @@
         }
 
         @media(max-width:700px) {
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .footer-address {
+                width: 100%
+            }
+
+            .socials {
+                align-self: flex-start
+            }
+
             .links {
                 position: absolute;
                 top: 65px;
@@ -1174,15 +1251,9 @@
                 </div>
                 <div class="profile-wrap reveal">
                     <div class="profile">
-                        <div class="profile-inner"><img id="profileImage" src="" alt="Musaib Shakeel profile photo"
-                                style="display:none">
-                            <div class="profile-placeholder" id="profilePlaceholder">
-                                <div><i class="fa-regular fa-user"></i><strong>Add Your Photo</strong>
-                                    <p>Replace the photo source in this one-file portfolio.</p>
-                                </div>
-                            </div>
-                            <div class="mini-card"><strong>Musaib Shakeel</strong><span>Java • Spring Boot • Web</span>
-                            </div>
+                        <div class="profile-inner"><img id="profileImage" src="IMG-20250530-WA0002.jpg"
+                                alt="Musaib Shakeel" style="display:block"></div>
+                        <div class="mini-card"><strong>Musaib Shakeel</strong><span>Java • Spring Boot • Web</span>
                         </div>
                     </div>
                 </div>
@@ -1331,21 +1402,8 @@
                 </div>
                 <div class="projects">
                     <div class="glass project reveal">
-                        <div class="project-top"><i class="fa-solid fa-hospital"></i><span
-                                class="project-number">01</span></div>
-                        <div class="project-body">
-                            <h3>Hospital Management System</h3>
-                            <p>A full-stack practice project using React, Node.js, Express and MongoDB for
-                                hospital-related data and workflows.</p>
-                            <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span
-                                    class="tag">MongoDB</span></div>
-                            <div class="project-links"><a class="text-link" href="https://github.com/musaibshakeel13"
-                                    target="_blank" rel="noopener">GitHub ↗</a></div>
-                        </div>
-                    </div>
-                    <div class="glass project reveal">
                         <div class="project-top"><i class="fa-solid fa-note-sticky"></i><span
-                                class="project-number">02</span></div>
+                                class="project-number">01</span></div>
                         <div class="project-body">
                             <h3>Smart Notes</h3>
                             <p>A browser-based notes project focused on simple UI, JavaScript interactions and local
@@ -1358,7 +1416,7 @@
                     </div>
                     <div class="glass project reveal">
                         <div class="project-top"><i class="fa-solid fa-temperature-half"></i><span
-                                class="project-number">03</span></div>
+                                class="project-number">02</span></div>
                         <div class="project-body">
                             <h3>Temperature Checking</h3>
                             <p>A web project for displaying weather and temperature information through an API-based
@@ -1467,11 +1525,17 @@
         </section>
     </main>
     <footer>
-        <div class="socials"><a class="social" href="https://github.com/musaibshakeel13" target="_blank" rel="noopener"
-                aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a class="social" href="#contact"
-                aria-label="Contact"><i class="fa-solid fa-envelope"></i></a><a class="social" href="#home"
-                aria-label="Home"><i class="fa-solid fa-house"></i></a></div>
-        <p>© <span id="year"></span> Musaib Shakeel. Built with HTML, CSS & JavaScript.</p>
+        <div class="footer-inner">
+            <div class="footer-brand"><strong>Musaib Shakeel</strong><span>Location</span></div>
+            <div class="footer-address"><i class="fa-solid fa-location-dot"></i>
+                <div><strong>India</strong><span>Jammu and Kashmir, Kashmir · District: Bandipora</span></div>
+            </div>
+            <div class="socials"><a class="social" href="https://github.com/musaibshakeel13" target="_blank"
+                    rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a><a class="social"
+                    href="#contact" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a><a class="social"
+                    href="#home" aria-label="Home"><i class="fa-solid fa-house"></i></a></div>
+        </div>
+        <p class="footer-copy">© <span id="year"></span> Musaib Shakeel</p>
     </footer>
     <button class="top" id="topBtn" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
